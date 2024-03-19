@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
 body {
   @apply dark;
 }
+*/
 
 @layer base {
   :root {
