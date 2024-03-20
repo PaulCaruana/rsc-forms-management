@@ -1,11 +1,8 @@
-import { httpBatchLink } from "@trpc/client";
-
+import { headers } from "next/headers";
 import { appRouter } from "@/server";
+import { db } from "@/db";
 
 export const serverClient = appRouter.createCaller({
-  links: [
-    httpBatchLink({
-      url: "http://localhost:3000/api/trpc",
-    }),
-  ],
+  db: db,
+  headers: headers(),
 });

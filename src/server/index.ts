@@ -15,8 +15,9 @@ const db = drizzle(sqlite);
 migrate(db, { migrationsFolder: "drizzle" });
 
 export const appRouter = router({
-  getTodos: publicProcedure.query(async () => {
-    return await db.select().from(todos).all();
+  getTodos: publicProcedure.query(async ({ ctx }) => {
+    const todosData = await ctx.db.select().from(todos).all();
+    return todosData;
   }),
   addTodo: publicProcedure.input(z.string()).mutation(async (opts) => {
     await db.insert(todos).values({ content: opts.input, done: 0 }).run();
