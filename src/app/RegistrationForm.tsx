@@ -35,7 +35,7 @@ export const RegistrationForm = ({
       user?: z.infer<typeof schema>;
       issues?: string[];
     },
-    data: FormData
+    data: FormData,
   ) => Promise<{
     message: string;
     user?: z.infer<typeof schema>;
@@ -51,7 +51,6 @@ export const RegistrationForm = ({
       first: "",
       last: "",
       email: "",
-      zipcode: "",
     },
   });
 
@@ -127,20 +126,6 @@ export const RegistrationForm = ({
         </div>
         <FormField
           control={form.control}
-          name="zipcode"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="" {...field} />
-              </FormControl>
-              <FormDescription>Your zipcode (NNNNN).</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
@@ -152,7 +137,7 @@ export const RegistrationForm = ({
               <FormMessage />
             </FormItem>
           )}
-        />
+        ></FormField>
         <Button type="submit">Submit</Button>
       </form>
     </Form>
