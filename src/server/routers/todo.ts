@@ -2,7 +2,7 @@ import { eq } from "drizzle-orm";
 
 import { z } from "zod";
 
-import { todos } from "@/db/schema";
+import { todos } from "@/drizzleOrm/sqliteSchemas";
 import { createTRPCRouter, publicProcedure } from "@/server/trpc";
 
 export const todoRouter = createTRPCRouter({

@@ -1,4 +1,4 @@
-import { user } from "@/db/schema";
+import { user } from "@/drizzleOrm/sqliteSchemas";
 import { createTRPCRouter, publicProcedure } from "@/server/trpc";
 import { schema2 } from "@/app/registrationSchema";
 
