@@ -1,7 +1,7 @@
 import { serverClient } from "./_trpcClients/serverClient";
-import UserList from "@/app/_components/User/UserList";
+import UserList from "@/app/_components/user/UserList";
 import { User, userSchema } from "@/model/user";
-import { UserForm } from "@/app/_components/User/UserForm";
+import { UserForm } from "@/app/_components/user/UserForm";
 import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
