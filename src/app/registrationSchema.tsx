@@ -1,7 +1,5 @@
 import { z } from "zod";
 
-import { validateZipcode } from "./validateZipcode";
-
 export const schema = z.object({
   first: z.string().trim().min(1, {
     message: "First name is required.",
@@ -12,7 +10,16 @@ export const schema = z.object({
   email: z.string().trim().email({
     message: "Invalid email address.",
   }),
-  zipcode: z.string().trim().refine(validateZipcode, {
-    message: "Invalid zipcode.",
+});
+
+export const schema2 = z.object({
+  firstName: z.string().trim().min(1, {
+    message: "First name is required.",
+  }),
+  lastName: z.string().trim().min(1, {
+    message: "Last name is required.",
+  }),
+  username: z.string().trim().email({
+    message: "Invalid email address.",
   }),
 });
