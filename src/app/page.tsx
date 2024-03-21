@@ -1,4 +1,4 @@
-import { serverClient } from "./_trpc/serverClient";
+import { serverClient } from "./_trpcClients/serverClient";
 import UserList from "@/app/_components/User/UserList";
 import { User, userSchema } from "@/model/user";
 import { UserForm } from "@/app/_components/User/UserForm";
