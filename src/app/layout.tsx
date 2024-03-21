@@ -1,8 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { headers } from "next/headers";
 
-import Provider from "@/app/_trpcClients/Provider";
+import Provider from "@/app/_trpc/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Provider>{children}</Provider>
+        <Provider headers={headers()}>{children}</Provider>
       </body>
     </html>
   );
