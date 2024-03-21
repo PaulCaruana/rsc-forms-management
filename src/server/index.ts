@@ -1,7 +1,6 @@
 import "server-only"; // Make sure you can't import this on client
 
 import { createTRPCRouter } from "@/server/trpc";
-import { todoRouter } from "@/server/routers/todo";
 import { userRouter } from "@/server/routers/user";
 
 /**
@@ -11,7 +10,6 @@ import { userRouter } from "@/server/routers/user";
  */
 export const appRouter = createTRPCRouter({
   user: userRouter,
-  todo: todoRouter,
 });
 
 // export type definition of API

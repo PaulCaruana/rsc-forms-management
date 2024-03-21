@@ -1,6 +1,6 @@
 "use client";
-import { trpc } from "../_trpc/client";
-import { serverClient } from "../_trpc/serverClient";
+import { trpc } from "../../_trpc/client";
+import { serverClient } from "../../_trpc/serverClient";
 
 export default function UserList({
   initialUserList,
