@@ -1,5 +1,5 @@
-import { user } from "@/db/drizzleOrm/sqliteSchemas";
-import { createTRPCRouter, publicProcedure } from "@/server/trpc";
+import { user } from "@/server/db/drizzleOrm/sqliteSchemas";
+import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { userSchema } from "@/model/user";
 
 export const userRouter = createTRPCRouter({

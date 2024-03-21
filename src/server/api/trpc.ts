@@ -1,5 +1,5 @@
 import { initTRPC } from "@trpc/server";
-import { db } from "@/db/drizzleOrm";
+import { db } from "@/server/db/drizzleOrm";
 
 /**
  * 1. CONTEXT
