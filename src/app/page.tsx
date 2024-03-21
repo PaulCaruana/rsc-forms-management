@@ -13,14 +13,9 @@ type UserFormAction = {
 };
 
 export default async function Home() {
-  //const todos = await serverClient.todo.getTodos();
   const users = await serverClient.user.getUsers();
   const onFormAction = async (
-    prevState: {
-      message: string;
-      user?: User;
-      issues?: string[];
-    },
+    prevState: UserFormAction,
     formData: FormData,
   ) => {
     "use server";
