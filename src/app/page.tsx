@@ -1,8 +1,8 @@
 import { serverClient } from "./_trpc/ServerClient";
 import UserList from "@/app/_components/user/UserList";
 import { User, userSchema } from "@/model/user";
-import { UserForm } from "@/app/_components/user/UserForm";
 import { revalidatePath } from "next/cache";
+import UserInput from "@/app/_components/user/UserInput";
 
 export const dynamic = "force-dynamic";
 
@@ -37,11 +37,8 @@ export default async function Home() {
 
   return (
     <main className="max-w-3xl mx-auto mt-5">
-      <UserForm onFormAction={onFormAction} />
+      <UserInput onFormAction={onFormAction} />
       <UserList initialUserList={users} />
-      {/*
-      <TodoList initialTodos={todos} />
-*/}
     </main>
   );
 }
