@@ -1,18 +1,9 @@
 "use client";
 import { useFormState } from "react-dom";
 import { useRef } from "react";
-import { Form, useZodForm } from "@/form";
+import { Form, SubmitButton, useZodForm } from "@/form";
 import { User, userSchema } from "@/model/user";
-import {
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/app/_components/widgets/form";
-import { Input } from "@/app/_components/widgets/input";
-import { Button } from "@/app/_components/widgets/button";
+import { FormInputText } from "@/app/_components/react-hook-form/FormInputText";
 
 type UserFormAction = {
   message: string;
@@ -54,50 +45,13 @@ const UserInput: React.FC<Props> = ({ onFormAction }) => {
       className="space-y-2"
     >
       <div className="flex gap-2">
-        <FormField
-          control={form.control}
-          name="firstName"
-          render={({ field }) => (
-            <FormItem className="w-full">
-              <FormLabel>First Name</FormLabel>
-              <FormControl>
-                <Input placeholder="" {...field} />
-              </FormControl>
-              <FormDescription>Your first name.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="lastName"
-          render={({ field }) => (
-            <FormItem className="w-full">
-              <FormLabel>Last Name</FormLabel>
-              <FormControl>
-                <Input placeholder="" {...field} />
-              </FormControl>
-              <FormDescription>Your last name.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <FormInputText required={true} name="firstName" label="First name" />
+        <FormInputText name="lastName" label="Last name" />
       </div>
-      <FormField
-        control={form.control}
-        name="username"
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Email</FormLabel>
-            <FormControl>
-              <Input placeholder="" {...field} />
-            </FormControl>
-            <FormDescription>Your email address.</FormDescription>
-            <FormMessage />
-          </FormItem>
-        )}
-      ></FormField>
-      <Button type="submit">Submit</Button>{" "}
+      <div>
+        <FormInputText name="username" label="Email" />
+      </div>
+      <SubmitButton form={form}>Submit</SubmitButton>
     </Form>
   );
 };
