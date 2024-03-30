@@ -2,8 +2,11 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { headers } from "next/headers";
+import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 import Provider from "@/app/_trpc/Provider";
+import theme from "@/app/theme/theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Provider headers={headers()}>{children}</Provider>
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Provider headers={headers()}>{children}</Provider>
+          </ThemeProvider>
+        </StyledEngineProvider>
       </body>
     </html>
   );

@@ -37,6 +37,7 @@ export default async function Home() {
 
   return (
     <main className="max-w-3xl mx-auto mt-5">
+      <h1>Heading 1</h1>
       <UserInput onFormAction={onFormAction} />
       <UserList initialUserList={users} />
     </main>
