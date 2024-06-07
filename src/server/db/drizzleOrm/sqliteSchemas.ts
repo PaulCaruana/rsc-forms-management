@@ -10,3 +10,5 @@ export const user = sqliteTable("user", {
     .default(sql`CURRENT_TIME`)
     .notNull(),
 });
+
+export type UserSchema = typeof user;
