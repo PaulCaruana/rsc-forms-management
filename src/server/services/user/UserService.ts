@@ -1,7 +1,4 @@
 import { User } from "@/model/user";
+import { DataAccessService } from "@/server/services/data-access/DataAccessService";
 
-export interface UserService {
-  fetchAll(): Promise<User[]>;
-  fetchByUniqueId(key: string, value: string): Promise<User | undefined>;
-  create(user: User): Promise<User>;
-}
+export interface UserService extends DataAccessService<User> {}
