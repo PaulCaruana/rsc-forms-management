@@ -3,16 +3,19 @@ import { user, user as userSchema } from "@/server/db/drizzleOrm/sqliteSchemas";
 import { User } from "@/model/user";
 import { DB } from "@/server/db/drizzleOrm";
 import { eq } from "drizzle-orm";
+import { ServiceContainerCradle } from "@/server/services/serviceContainer";
 
-export class UserServiceDrizzle implements UserService<User> {
+type Dependencies = Pick<ServiceContainerCradle, "db">;
+
+export class UserServiceDrizzle implements UserService {
   private db: DB;
 
-  constructor(db: DB) {
-    this.db = db;
+  constructor(dependencies: Dependencies) {
+    this.db = dependencies.db;
   }
 
   async fetchAll(): Promise<User[]> {
-    return await this.db.select().from(userSchema);
+    return this.db.select().from(userSchema);
   }
 
   async fetchByUniqueId(username: string): Promise<User> {
