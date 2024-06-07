@@ -8,10 +8,10 @@ export abstract class DataAccessServiceDrizzle<
   S extends SQLiteTableWithColumns<any>,
 > implements DataAccessService<E>
 {
-  private db: DB;
-  private schema: S;
+  private readonly db: DB;
+  private readonly schema: S;
 
-  constructor(db: DB, schema: S) {
+  protected constructor(db: DB, schema: S) {
     this.db = db;
     this.schema = schema;
   }
