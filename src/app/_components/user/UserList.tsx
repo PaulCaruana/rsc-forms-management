@@ -20,7 +20,7 @@ export default function UserList({
     <div>
       <div className="text-black my-5 text-3xl">
         {getUsers?.data?.map((user) => (
-          <div key={user.id} className="flex gap-3 items-center">
+          <div key={user.username} className="flex gap-3 items-center">
             {user.firstName}
           </div>
         ))}
