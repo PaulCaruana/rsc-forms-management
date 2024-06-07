@@ -1,4 +1,4 @@
-import { UserService } from "@/server/data/UserService";
+import { UserService } from "@/server/services/user/UserService";
 import { user, user as userSchema } from "@/server/db/drizzleOrm/sqliteSchemas";
 import { User } from "@/model/user";
 import { DB } from "@/server/db/drizzleOrm";
@@ -12,8 +12,7 @@ export class UserServiceDrizzle implements UserService<User> {
   }
 
   async fetchAll(): Promise<User[]> {
-    const users = await this.db.select().from(userSchema);
-    return users;
+    return await this.db.select().from(userSchema);
   }
 
   async fetchByUniqueId(username: string): Promise<User> {
