@@ -9,17 +9,14 @@ export const FormInputText = ({ name, label, ...props }: MuiTextFieldProps) => {
     <Controller
       name={name}
       control={control}
-      render={({
-        field: { onChange, value },
-        fieldState: { error },
-        formState,
-      }) => (
+      render={({ field, fieldState: { error }, formState }) => (
         <TextField
+          {...field}
           helperText={error ? error.message : null}
           size="small"
           error={!!error}
-          onChange={onChange}
-          value={value}
+          onChange={field.onChange}
+          value={field.value}
           fullWidth
           margin={"normal"}
           label={label}
