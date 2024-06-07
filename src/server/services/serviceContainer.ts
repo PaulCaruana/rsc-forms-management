@@ -17,4 +17,6 @@ serviceContainer.register({
   db: asValue(db),
 });
 
-export { serviceContainer };
+const userService = serviceContainer.cradle.userService;
+
+export { userService };
